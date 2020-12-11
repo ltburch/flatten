@@ -8,7 +8,6 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TreeMap;
@@ -16,11 +15,9 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import com.drew.imaging.ImageMetadataReader;
-import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
-import com.drew.metadata.MetadataException;
-import com.drew.metadata.exif.ExifSubIFDDirectory;
+import com.drew.metadata.exif.ExifDirectoryBase;
 
 public class FileVisitor
     extends SimpleFileVisitor<Path> {
@@ -55,8 +52,8 @@ public class FileVisitor
 	
 	    	for (Directory metaDir : metadata.getDirectories()) {
 		    	if (metaDir != null) {
-			    	if (metaDir.containsTag(ExifSubIFDDirectory.TAG_DATETIME ) ) {
-			    		String s = metaDir.getString(ExifSubIFDDirectory.TAG_DATETIME);
+			    	if (metaDir.containsTag(ExifDirectoryBase.TAG_DATETIME ) ) {
+			    		String s = metaDir.getString(ExifDirectoryBase.TAG_DATETIME);
 			    		return exifDate.parse(s);
 			    	}
 		    	}
