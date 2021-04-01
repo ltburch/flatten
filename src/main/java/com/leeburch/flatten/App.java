@@ -128,7 +128,6 @@ public class App
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp( "flatten", options );
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	

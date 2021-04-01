@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Date;
 
-class FlattenEntity implements Comparable {
+class FlattenEntity implements Comparable<FlattenEntity> { 
 	String name;
 	String alias;
 	Date creationDate;
@@ -92,11 +92,8 @@ class FlattenEntity implements Comparable {
 		return true;
 	}
 
-	public int compareTo(Object o) {
-		if (o instanceof FlattenEntity) {
-			return this.name.compareTo(((FlattenEntity)o).name);
-		}
-		return 0;
+	public int compareTo(FlattenEntity o) {
+		return this.name.compareTo(o.name);
 	}
 	
 }

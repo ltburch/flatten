@@ -25,6 +25,10 @@ import com.drew.metadata.exif.ExifSubIFDDirectory;
 import javaxt.io.Image;
 
 public class DirectoryFlattener extends JPanel {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 3851791641401980722L;
 	String[] source;
 	String dest;
 	boolean dryRun;
